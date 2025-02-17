@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
+import UploadProduct from './components/UploadProduct';
+
+function MainPage() {
+  return (
+    <div className="main-page">
+      <h1>GovDeals Re-Design</h1>
+      <div className="button-container">
+        <Link to="/signin">
+          <button className="signup-button">Sign In / Register</button>
+        </Link>
+        <Link to="/upload-product">
+          <button className="upload-button">Sell</button>
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> this!!.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar /> 
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/upload-product" element={<UploadProduct />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
