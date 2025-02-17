@@ -1,0 +1,51 @@
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .footer h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .brands-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: inherit; /* 기본 색상 유지 */
+  }
+  
+  .brand img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  .brand img:hover {
+    transform: scale(1.1); /* 마우스 올리면 확대 효과 */
+  }
+  
+  .brand p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    cursor: pointer; /* 마우스 올리면 클릭 가능하다는 느낌 */
+  }
+  
+  .brand:hover p {
+    color: #007bff; /* 마우스 올리면 텍스트 색 변경 */
+  }
+  
