@@ -1,13 +1,19 @@
-
+/* 전체 페이지 기본 설정 */
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
 }
 
+/* 제목 스타일 */
 h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
+/* 🌟 Main Page 스타일 */
 .main-page {
   display: flex;
   flex-direction: column;
@@ -25,22 +31,28 @@ h1 {
   margin-bottom: 30px;
 }
 
+/* 🌟 버튼 스타일 */
 .button-container {
   display: flex;
-  gap: 20px; 
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .signup-button,
 .upload-button {
-  padding: 15px 30px;
-  font-size: 1.25rem;
+  padding: 12px 25px;
+  font-size: 16px;
   font-weight: bold;
+  text-align: center;
   color: white;
   background-color: #007bff;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .signup-button:hover,
@@ -48,13 +60,62 @@ h1 {
   background-color: #0056b3;
 }
 
+/* 🌟 네비게이션 바 스타일 */
+.navbar {
+  background-color: #0a3161;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+  color: #f5a623;
+}
+
+/* 네비게이션 바 내부 버튼 스타일 */
+.navbar .nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar .nav-buttons a {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.navbar .nav-buttons a:hover {
+  background-color: #0056b3;
+}
+
+/* 🌟 Form (회원가입, 로그인 등) */
 .page-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; 
-  background-color: #f5f5f5; 
+  min-height: 100vh;
+  background-color: #f5f5f5;
   padding: 20px;
 }
 
@@ -106,4 +167,49 @@ form button {
 
 form button:hover {
   background-color: #0056b3;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4개씩 배치 */
+  grid-gap: 20px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.product-box {
+  width: 200px;
+  height: 250px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.product-box h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+}
+
+.product-box p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* 🌟 푸터 스타일 */
+.footer {
+  background-color: #0a3161;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
 }
