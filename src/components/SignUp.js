@@ -8,16 +8,33 @@ function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      setError('❌ Passwords must match!');
-      return;
+        setError('❌ Passwords must match!');
+        return;
     }
 
-    setError('');
-    alert('✅ Registration successful!');
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            setError(`❌ ${data.message}`);
+        } else {
+            alert('✅ Registration successful! Please sign in.');
+            window.location.href = "/signin";
+        }
+    } catch (error) {
+        console.error(error);
+        setError('❌ Server error. Try again.');
+    }
   };
 
   return (
