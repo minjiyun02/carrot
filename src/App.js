@@ -28,6 +28,13 @@ function MainPage() {
             <img src={product.image} alt={product.name} className="product-image" />
             <h3>{product.name}</h3>
             <p>{product.price}</p>
+            {/* 구매 버튼을 이미지 버튼으로 변경 */}
+            <img
+              src="/images/buy_button.png"
+              alt="Buy Now"
+              className="buy-button"
+              onClick={() => alert(`Purchased: ${product.name}`)}
+            />
           </div>
         ))}
       </div>

@@ -40,18 +40,8 @@ function Navbar() {
           <option value="en">English</option>
           <option value="fr">Français</option>
         </select>
-
-        {userName ? (
-          <>
-            <span className="user-name">👋 Hi, {userName}!</span>
-            <button className="logout-button" onClick={handleLogout}>Logout</button>
-          </>
-        ) : (
-          <>
-            <Link to="/signin">Sign In</Link>
-            <Link to="/signup">Register</Link>
-          </>
-        )}
+        <Link to="/signin">Sign In</Link>
+        <Link to="/signup">Register</Link>
       </div>
     </nav>
   );

@@ -1,9 +1,24 @@
-/* 전체 페이지 기본 설정 */
+/* 전체 웹사이트 레이아웃 */
 .App {
+  width: 100%; /* 전체 너비를 100%로 설정 */
+  margin: 0 auto;
   text-align: center;
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
   min-height: 100vh;
+}
+
+/* 메인 페이지 스타일 */
+.main-page {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  min-height: 100vh;
+  padding: 20px 0; /* 좌우 패딩 제거 */
+  background-color: #f5f5f5;
 }
 
 /* 제목 스타일 */
@@ -13,25 +28,7 @@ h1 {
   font-weight: bold;
 }
 
-/* 🌟 Main Page 스타일 */
-.main-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding-top: 80px; 
-  min-height: 100vh;
-  padding: 20px;
-  background-color: #f5f5f5;
-}
-
-.main-page p {
-  font-size: 1.25rem;
-  margin-bottom: 30px;
-}
-
-/* 🌟 버튼 스타일 */
+/* 버튼 컨테이너 */
 .button-container {
   display: flex;
   gap: 15px;
@@ -39,177 +36,83 @@ h1 {
   margin-top: 20px;
 }
 
-.signup-button,
-.upload-button {
-  padding: 12px 25px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
+/* 이미지 버튼 스타일 */
+.button-container img {
+  width: 150px; /* 버튼 이미지 크기 */
+  height: auto;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
+  transition: transform 0.2s ease;
 }
 
-.signup-button:hover,
-.upload-button:hover {
-  background-color: #0056b3;
+.button-container img:hover {
+  transform: scale(1.05);
 }
 
-/* 🌟 네비게이션 바 스타일 */
-.navbar {
-  background-color: #0a3161;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-}
-
-.navbar .nav-links {
-  display: flex;
+/* 상품 목록을 flex로 변경 */
+.product-grid {
+  width: 90%; /* 전체 너비 활용 */
+  max-width: 1200px; /* 최대 크기 제한 */
+  margin: 0 auto;
+  display: flex; 
+  flex-wrap: wrap; /* 화면 크기에 따라 줄바꿈 */
+  justify-content: space-between; /* 요소 간격 조정 */
   gap: 20px;
 }
 
-.navbar .nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-  transition: color 0.3s ease;
-}
-
-.navbar .nav-links a:hover {
-  color: #f5a623;
-}
-
-/* 네비게이션 바 내부 버튼 스타일 */
-.navbar .nav-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.navbar .nav-buttons a {
-  padding: 8px 15px;
-  background-color: #007bff;
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.navbar .nav-buttons a:hover {
-  background-color: #0056b3;
-}
-
-/* 🌟 Form (회원가입, 로그인 등) */
-.page-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f5f5f5;
-  padding: 20px;
-}
-
-form {
-  width: 100%;
-  max-width: 400px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-form div {
-  margin-bottom: 15px;
-}
-
-form label {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-form input,
-form textarea,
-form button {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-form input:focus,
-form textarea:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-form button {
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #0056b3;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4개씩 배치 */
-  grid-gap: 20px;
-  justify-items: center;
-  margin-top: 20px;
-}
-
+/* 개별 상품 박스 */
 .product-box {
-  width: 200px;
-  height: 250px;
+  width: 48%; /* 두 개씩 정렬되도록 설정 */
+  max-width: 580px; /* 너무 커지지 않게 제한 */
+  height: auto;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 15px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
 }
 
+.product-box:hover {
+  transform: scale(1.02);
+}
+
+/* 상품 이미지 */
 .product-image {
   width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
   border-radius: 5px;
 }
 
+/* 상품 제목 */
 .product-box h3 {
   margin: 10px 0 5px;
   font-size: 1.2rem;
 }
 
+/* 상품 가격 */
 .product-box p {
   font-size: 1rem;
-  color: #555;
+  color: #007bff;
+  font-weight: bold;
 }
 
-/* 🌟 푸터 스타일 */
-.footer {
-  background-color: #0a3161;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 20px;
+/* 구매 버튼 (이미지) */
+.buy-button {
+  width: 100px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.buy-button:hover {
+  transform: scale(1.1);
+}
+
+/* 반응형 처리 */
+@media (max-width: 768px) {
+  .product-box {
+    width: 100%; /* 작은 화면에서는 한 줄 정렬 */
+  }
 }
