@@ -30,7 +30,6 @@ function Navbar() {
     <div className="nav-container">
       {/* 첫 번째 줄 */}
       <nav className="nav-top">
-        
         {/* 왼쪽 그룹 (로고 + 검색창) */}
         <div className="nav-left">
           <Link to="/" className="nav-logo">
@@ -48,9 +47,18 @@ function Navbar() {
         <div className="nav-right">
           <img src="/images/위시리스트.png" alt="Wishlist" className="nav-icon" />
           <img src="/images/카트.png" alt="Cart" className="nav-icon" />
-          <Link to="/images/.png" className="nav-text-link">Sell now</Link>
-          <Link to="/images/Signup.png" className="nav-text-link">Sign up</Link>
-          <Link to="/images/login.png" className="nav-text-link">Log in</Link>
+          {userName ? (
+            <>
+              <span className="nav-text-link">Hello, {userName}</span>
+              <button onClick={handleLogout} className="nav-text-link">Logout</button>
+            </>
+          ) : (
+            <>
+              <Link to="/upload-product" className="nav-text-link">Sell now</Link>
+              <Link to="/signup" className="nav-text-link">Sign up</Link>
+              <Link to="/signin" className="nav-text-link">Log in</Link>
+            </>
+          )}
         </div>
       </nav>
 
