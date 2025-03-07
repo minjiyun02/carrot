@@ -5,10 +5,8 @@ import './Navbar.css';
 function Navbar() {
   return (
     <div className="nav-container">
-      {/* 첫 번째 줄 */}
       <nav className="nav-top">
         
-        {/* 왼쪽 그룹 (로고 + 검색창) */}
         <div className="nav-left">
           <Link to="/" className="nav-logo">
             <img src="/images/logo.png" alt="GovDeals Logo" />
@@ -21,17 +19,26 @@ function Navbar() {
           </div>
         </div>
 
-        {/* 오른쪽 그룹 (아이콘 + 텍스트) */}
         <div className="nav-right">
           <img src="/images/위시리스트.png" alt="Wishlist" className="nav-icon" />
           <img src="/images/카트.png" alt="Cart" className="nav-icon" />
-          <Link to="/images/.png" className="nav-text-link">Sell now</Link>
-          <Link to="/images/Signup.png" className="nav-text-link">Sign up</Link>
-          <Link to="/images/login.png" className="nav-text-link">Log in</Link>
+
+          {/* ✅ Upload Product 페이지 텍스트 링크 */}
+          <Link to="/upload-product" className="nav-text-link">Sell Now</Link>
+
+          {/* ✅ Sign In 페이지 텍스트 링크 */}
+          <Link to="/signin" className="nav-text-link">Sign In</Link>
+
+          {/* ✅ Sign Up 페이지 텍스트 링크 */}
+          <Link to="/signup" className="nav-text-link">Sign Up</Link>
+
+          <div className="nav-location">
+            <img src="/images/location.png" alt="Location" className="location-icon" />
+            <span> Davis, CA</span> 
+          </div>
         </div>
       </nav>
 
-      {/* 두 번째 줄 */}
       <nav className="nav-bottom">
         <Link to="/">Shop by Category</Link>
         <Link to="/">Closing Today</Link>

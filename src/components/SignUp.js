@@ -68,7 +68,6 @@ function SignUp() {
         <button type="submit" className="register-button">Register</button>
       </form>
 
-      {/* ✅ 추가된 부분 */}
       <div className="signin-container">
         <p>Already have an account?</p>
         <Link to="/signin">

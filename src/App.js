@@ -6,38 +6,32 @@ import Footer from './components/Footer';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import UploadProduct from './components/UploadProduct';
+import TopProducts from './components/TopProducts';
 
 const products = [
-  { id: 1, name: 'Chevrolet Trax LS 2024', price: '$20000', image: '/images/Image 1.jpg' },
-  { id: 2, name: 'Product!', price: '$150', image: '/images/Image 2.jpg' },
-  { id: 3, name: 'ASUS ROG GAMING PC AMD RYZEN 5600X ..', price: '$1000', image: '/images/Image 3.jpg' },
-  { id: 4, name: 'Real Estate', price: '$750000', image: '/images/Image 4.jpg' },
-  { id: 5, name: 'Product 5', price: '$300', image: 'https://via.placeholder.com/150' },
-  { id: 6, name: 'Product 6', price: '$350', image: 'https://via.placeholder.com/150' },
-  { id: 7, name: 'Product 7', price: '$400', image: 'https://via.placeholder.com/150' },
-  { id: 8, name: 'Product 8', price: '$450', image: 'https://via.placeholder.com/150' }
+  { id: 1, name: 'Vehicles', des: 'Cars, SUVs, Trucks', image: '/images/image1.png' },
+  { id: 2, name: 'Construction', des: 'Heavy Machinery, Warehousing', image: '/images/Image 2.jpg' },
+  { id: 3, name: 'Electronic & Technology', des: 'Computers, Phones, Cameras, Power', image: '/images/Image 3.jpg' },
+  { id: 4, name: 'Costomer Goods', des: 'Furniture, Clothing, Jewelry, Arts, Garden, Sports', image: '/images/Image 4.jpg' },
+  { id: 5, name: 'Office & Education', des: 'Office Furniture, School, Printing', image: '/images/Image 5.jpg' },
+  { id: 6, name: 'Medical & Emergency', des: 'First Aid, Safety Supplies, Fire', image: '/images/Image 6.jpg' },
+  { id: 7, name: 'Food & Agriculture', des: 'Food Processing, Kitchen, Storage', image: '/images/Image 7.jpg' },
+  { id: 8, name: 'Real Estate', des: 'Commercial, Industrial Property, Residential', image: '/images/Image 8.jpg' }
 ];
 
 function MainPage() {
   return (
     <div className="main-page">
-      <h1> </h1>
       <div className="product-grid">
         {products.map((product) => (
           <div key={product.id} className="product-box">
             <img src={product.image} alt={product.name} className="product-image" />
             <h3>{product.name}</h3>
-            <p>{product.price}</p>
-            {/* 구매 버튼을 이미지 버튼으로 변경 */}
-            <img
-              src="/images/buy_button.png"
-              alt="Buy Now"
-              className="buy-button"
-              onClick={() => alert(`Purchased: ${product.name}`)}
-            />
+            <p>{product.des}</p>
           </div>
         ))}
       </div>
+      <TopProducts />
     </div>
   );
 }
