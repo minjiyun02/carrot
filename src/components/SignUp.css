@@ -64,6 +64,7 @@ select, option {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     margin-right: 200px;
+    margin-top: 140px;
 }
 
 /* ✅ Personal/Business 선택 토글 */

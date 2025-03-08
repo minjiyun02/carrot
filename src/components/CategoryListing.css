@@ -1,0 +1,69 @@
+/* --- General Styling --- */
+.listings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* --- Card Styling --- */
+  .listing-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .listing-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .listing-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .listing-details {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .listing-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .listing-price {
+    font-size: 22px;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .listing-location, .listing-lot {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  /* --- Category Card Styling --- */
+  .category-card {
+    text-align: center;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .category-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .category-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  

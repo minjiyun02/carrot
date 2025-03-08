@@ -19,6 +19,7 @@ body, .nav-container, .nav-top, .nav-bottom, .nav-text-link, .nav-right {
   align-items: center;
   width: 100%;
   padding: 15px 80px; 
+  padding-left: 0;
 }
 
 /* 왼쪽 그룹 (로고 + 검색창) */
@@ -140,6 +141,17 @@ body, .nav-container, .nav-top, .nav-bottom, .nav-text-link, .nav-right {
 .nav-bottom a:hover {
   color: #007bff;
 }
+
+.logout-button {
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  text-decoration: underline;
+}
+
 
 /* 반응형 스타일 */
 @media (max-width: 1024px) {

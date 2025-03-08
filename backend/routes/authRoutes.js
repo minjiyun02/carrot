@@ -6,27 +6,48 @@ require('dotenv').config();
 
 const router = express.Router();
 
+router.use(express.json());
+
 // Register User
 router.post('/signup', async (req, res) => {
-    const { name, email, password } = req.body;
+    console.log("Received Data:", req.body);
 
     try {
-        let user = await User.findOne({ email });
+        if (!req.body.accountType) {
+            return res.status(400).json({ message: "Account type is required" });
+        }
+
+        let user = await User.findOne({ email: req.body.email });
         if (user) return res.status(400).json({ message: 'Email already exists' });
 
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-        user = new User({ name, email, password: hashedPassword });
-        await user.save();
+        const newUser = new User({
+            accountType: req.body.accountType,
+            firstName: req.body.accountType === 'Personal' ? req.body.firstName : undefined,
+            lastName: req.body.accountType === 'Personal' ? req.body.lastName : undefined,
+            username: req.body.accountType === 'Personal' ? req.body.username : undefined,
+            businessName: req.body.accountType === 'Business' ? req.body.businessName : undefined,
+            email: req.body.email,
+            password: hashedPassword,
+            country: req.body.accountType === 'Personal' ? req.body.country : undefined,
+            state: req.body.state,
+            city: req.body.accountType === 'Personal' ? req.body.city : undefined,
+            zipCode: req.body.accountType === 'Personal' ? req.body.zipCode : undefined
+        });
+
+        console.log("Saving user:", newUser);
+        await newUser.save();
 
         res.status(201).json({ message: 'User registered successfully' });
+
     } catch (error) {
-        res.status(500).json({ message: 'Server error' });
+        console.error("Error in Signup:", error);
+        res.status(500).json({ message: 'Server error', error: error.message });
     }
 });
 
-// Login User
+
 router.post('/signin', async (req, res) => {
     const { email, password } = req.body;
 
@@ -39,8 +60,9 @@ router.post('/signin', async (req, res) => {
 
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        res.json({ token, userId: user._id });
+        res.json({ token, userId: user._id, name: user.firstName || user.businessName });
     } catch (error) {
+        console.error("Error in Signin:", error);
         res.status(500).json({ message: 'Server error' });
     }
 });
