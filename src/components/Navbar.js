@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
-  const [userName, setUserName] = useState(localStorage.getItem('userName') || null);
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const handleStorageChange = () => {
-      setUserName(localStorage.getItem('userName')); // ✅ Update state when user logs in
+      setUserName(localStorage.getItem('name'));
     };
 
-    // Listen for changes in localStorage
     window.addEventListener('storage', handleStorageChange);
 
     return () => {
@@ -21,8 +20,8 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
-    localStorage.removeItem('userName');
-    setUserName(null); // ✅ Clear state after logout
+    localStorage.removeItem('name');
+    setUserName(null);
     window.location.href = "/signin";
   };
 
@@ -50,7 +49,7 @@ function Navbar() {
           {userName ? (
             <>
               <span className="nav-text-link">Hello, {userName}</span>
-              <button onClick={handleLogout} className="nav-text-link">Logout</button>
+              <div onClick={handleLogout} className="nav-text-link">Logout</div>
             </>
           ) : (
             <>

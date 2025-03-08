@@ -9,6 +9,7 @@
 /* 첫 번째 줄 (로고, 검색창, 아이콘) */
 .nav-top {
   display: flex;
+  width: 100%;
   justify-content: space-between; /* 좌우 균형 맞추기 */
   align-items: center;
   width: 100%;
@@ -87,6 +88,11 @@
   font-weight: bold;
   text-decoration: none;
   color: black;
+  cursor: pointer;
+}
+
+.nav-text-link:hover {
+  color: #007bff;
 }
 
 .nav-text-link img {
