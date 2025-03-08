@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+body, 
+.register-page, 
+.register-container, 
+.form-container, 
+input, 
+select, 
+.form-container select,
+.form-container input,
+.select-container,
+button {
+    font-family: 'Inter', sans-serif !important;
+}
+
+select, option {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* ✅ 전체 페이지 정렬 */
+.register-page {
+    display: flex;
+    height: 100vh;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10vw;
+}
+
+/* ✅ 왼쪽 GovDeals 로고 + 이미지 */
+.register-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding-left: 5vw;
+}
+
+.govdeals-logo {
+    width: 180px;
+    margin-bottom: 20px;
+    margin-right: 210px;
+}
+
+.register-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* ✅ 오른쪽 회원가입 폼 */
+.register-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    background: white;
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-right: 200px;
+}
+
+/* ✅ Personal/Business 선택 토글 */
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f8f8;
+    border-radius: 30px;
+    padding: 5px;
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+    margin: 0 auto;
+}
+
+/* ✅ Personal & Business 버튼 */
+.toggle-option {
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+/* ✅ 움직이는 토글 버튼 */
+.toggle-slider {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(50% - 5px);
+    height: calc(100% - 10px);
+    background: #4f95ff;
+    border-radius: 25px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+}
+
+/* ✅ Business 선택 시 토글 이동 */
+.toggle-switch.business-active .toggle-slider {
+    transform: translateX(100%);
+}
+
+/* ✅ 입력 필드 & Select 버튼 스타일 */
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 8px;  
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 36px; 
+    appearance: none;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+/* ✅ Select 버튼 wrapper */
+.select-container {
+    position: relative;
+    width: 100%;
+}
+
+/* ✅ Select 버튼 */
+select {
+    background-color: white;
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+/* ✅ 커스텀 화살표 아이콘 추가 */
+.select-container::after {
+    content: "▼";
+    font-size: 12px;
+    color: #666;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* ✅ Select와 Input을 같은 높이로 맞추기 */
+select, input {
+    height: 36px;  
+}
+
+/* ✅ 이름, 국가-주, 도시-우편번호 그룹 정렬 */
+.name-fields,
+.location-fields {
+    display: flex;
+    gap: 20px;
+}
+
+/* ✅ 각 필드 반반씩 차지하도록 */
+.name-fields input,
+.location-fields select,
+.location-fields input {
+    flex: 1;
+}
+
+/* ✅ 버튼 스타일 */
+.register-button {
+    background: #4f95ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    height: 36px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px; 
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.register-button:hover {
+    background: #3a7dd1;
+}
+
+/* ✅ Sign In 문구 중앙 정렬 */
+/* ✅ Sign-in 버튼 위치 조정 */
+.signin-container {
+    width: 100%;
+    max-width: 400px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* ✅ Sign-in 버튼 스타일 */
+.signin-button {
+    background: none;
+    border: none;
+    color: #4f95ff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* ✅ 비밀번호 검증 메시지 스타일 */
+.password-requirements {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.password-requirements p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 4px 0;
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}

@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+.login-page {
+    display: flex;
+    height: 100vh;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10vw;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* ✅ 왼쪽 로고 & 이미지 */
+.login-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding-left: 5vw;
+}
+
+.govdeals-logo {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.login-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* ✅ 오른쪽 로그인 폼 */
+.login-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-right: 200px;
+}
+
+/* ✅ 입력 필드 스타일 */
+.login-form input {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 36px;
+}
+
+/* ✅ 로그인 버튼 */
+.login-button {
+    background: #4f95ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.login-button:hover {
+    background: #3a7dd1;
+}
+
+/* ✅ 회원가입 이동 링크 */
+.register-link-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link-button {
+    background: none;
+    border: none;
+    color: #4f95ff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto;
+}

@@ -1,51 +1,136 @@
 .footer {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 40px;
-  }
-  
-  .footer h3 {
-    color: #333;
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-  
-  .brands-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-  }
-  
-  .brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 150px;
-    text-decoration: none; 
-    color: inherit; 
-  }
-  
-  .brand img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 5px;
-    transition: transform 0.3s ease;
-  }
-  
-  .brand img:hover {
-    transform: scale(1.1); 
-  }
-  
-  .brand p {
-    font-size: 14px;
-    color: #666;
-    margin: 0;
-    cursor: pointer; 
-  }
-  
-  .brand:hover p {
-    color: #007bff; 
-  }
-  
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+  text-align: left;
+  margin-top: 50px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 첫첫 번째 줄 스타일 */
+.footer-top {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 900px; 
+  margin: 0 auto; 
+  gap: 60px; 
+  margin-left:50px;
+  margin-bottom:30px;
+}
+
+/* 두 번째 줄 스타일 */
+.footer-bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  gap: 130px;
+}
+
+/* 공통 섹션 스타일 */
+.footer-section {
+  flex: 1;
+  min-width: 180px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 2px; 
+}
+
+/* 제목 스타일 */
+.footer-section h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  min-height: 20px;
+}
+
+/* 링크 스타일 */
+.footer-section a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.footer-section a:hover {
+  color: #007bff;
+}
+
+/* Liquidity Services Brands 아이콘을 3x2로 정렬 */
+.brand-icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 220px;
+  align-items: start;
+}
+
+.brand-icons img {
+  width: 80px;
+  height: auto;
+}
+
+/* Follow Us 아이콘 정렬 */
+.footer-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.footer-icons img {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+/* footer-bottom 스타일 */
+.footer-bottom {
+  background-color: #E8F1FF;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  border-top: 3px solid #ddd;
+}
+
+.footer-bottom a {
+  color: #666;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: #007bff;
+}
+
+/* 언어 버튼 */
+.language-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  width: auto;
+  cursor: pointer;
+  margin-top:-10px;
+}
+
+.footer-copyright { 
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 30px;
+}
