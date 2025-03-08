@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -36,19 +36,30 @@ function MainPage() {
   );
 }
 
+function Layout() {
+  const location = useLocation(); // 현재 경로 확인
+
+  // ❌ /signup에서는 Navbar & Footer 숨기기
+  const hideNavbarFooter = location.pathname === "/signup" || location.pathname === "/signin";
+
+  return (
+    <div className="App">
+      {!hideNavbarFooter && <Navbar />}
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/upload-product" element={<UploadProduct />} />
+      </Routes>
+      {!hideNavbarFooter && <Footer />}
+    </div>
+  );
+}
+
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/upload-product" element={<UploadProduct />} />
-        </Routes>
-        <Footer />
-      </div>
+      <Layout />
     </Router>
   );
 }
