@@ -31,6 +31,10 @@ const topProducts = [
   },
 ];
 
+const truncateText = (text, maxLength) => {
+  return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+};
+
 function TopProducts() {
   return (
     <div className="top-products-section">
@@ -44,7 +48,7 @@ function TopProducts() {
               alt={product.name}
               className="top-product-image"
             />
-            <h3>{product.name}</h3>
+            <h3>{truncateText(product.name, 23)}</h3>
             <p className="top-product-price">{product.price}</p>
             <p className="top-product-location">{product.location}</p>
             <p className="auction-info">{product.auctionInfo}</p>

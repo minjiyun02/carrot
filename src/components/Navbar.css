@@ -19,6 +19,7 @@ body, .nav-container, .nav-top, .nav-bottom, .nav-text-link, .nav-right {
   align-items: center;
   width: 100%;
   padding: 15px 80px; 
+  padding-left: 0;
 }
 
 /* 왼쪽 그룹 (로고 + 검색창) */
@@ -63,7 +64,8 @@ body, .nav-container, .nav-top, .nav-bottom, .nav-text-link, .nav-right {
 
 .search-button img {
   width: 25px;
-  margin-left: 105px; 
+  margin-left: 70px;
+  background: none; 
 }
 
 /* 오른쪽 그룹 (아이콘 + 텍스트) */
@@ -107,6 +109,11 @@ body, .nav-container, .nav-top, .nav-bottom, .nav-text-link, .nav-right {
   font-weight: bold;
   text-decoration: none;
   color: black;
+  cursor: pointer;
+}
+
+.nav-text-link:hover {
+  color: #007bff;
 }
 
 .nav-text-link img {
@@ -120,7 +127,7 @@ body, .nav-container, .nav-top, .nav-bottom, .nav-text-link, .nav-right {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 12px 0;
+  padding: 40px 0;
   font-weight: bold;
   border-top: 1px solid #ddd;
 }
@@ -135,6 +142,17 @@ body, .nav-container, .nav-top, .nav-bottom, .nav-text-link, .nav-right {
 .nav-bottom a:hover {
   color: #007bff;
 }
+
+.logout-button {
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  text-decoration: underline;
+}
+
 
 /* 반응형 스타일 */
 @media (max-width: 1024px) {
