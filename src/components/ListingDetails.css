@@ -1,0 +1,277 @@
+.details-container {
+  padding: 40px 80px;
+  font-family: 'Outfit', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.details-main {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+/* ===== Left Side - Image Section ===== */
+.details-gallery {
+  display: flex;
+  gap: 20px;
+}
+
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.thumbnails img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.3s;
+}
+
+.thumbnails img:hover {
+  border: 2px solid #007bff;
+}
+
+.main-image {
+  width: 500px;
+  height: 330px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zoom-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.zoom-button:hover {
+  opacity: 1;
+}
+
+/* Zoom Modal Overlay */
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  cursor: zoom-out;
+}
+
+.zoomed-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+.zoomed-image:c {
+  transform: scale(1.8);
+  cursor: zoom-out;
+}
+
+.close-zoom {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+/* ===== Right Side - Info Section ===== */
+.listing-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  max-width: 320px;
+}
+
+.listing-info h2 {
+  font-size: 38px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.listing-info h3 {
+  font-size: 26px;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.listing-info p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.listing-info .saletype {
+  color: #000000;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.listing-info .location {
+  color: #007bff;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bid-button,
+.watch-button {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.bid-button {
+  background-color: #4f95ff;
+  color: white;
+  border: none;
+}
+
+.watch-button {
+  background-color: white;
+  color: #4f95ff;
+  border: 1px solid #4f95ff;
+}
+
+/* ===== Lower Info Sections ===== */
+.details-lower {
+  margin-top: 60px;
+  padding: 0 40px;
+}
+
+.description-section h4,
+.more-info-section h4 {
+  font-size: 20px;
+  color: #007bff;
+  margin-bottom: 16px;
+}
+
+.description-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+
+.description-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+  font-size: 15px;
+}
+
+.description-table td:first-child {
+  font-weight: 600;
+  width: 220px;
+  color: #333;
+}
+
+.more-info-section {
+  text-align: left;
+  margin-top: 30px;
+  padding: 0 20px;
+  max-width: 800px;
+}
+
+.more-info-section h4 {
+  font-size: 36px;
+  padding-top: 30px;
+}
+
+.more-info-section button {
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 17px;
+  color: #ffffff;
+  background-color: #1a73e8;
+  border-color: #ffffff00;
+}
+
+.more-info-section button:hover {
+  color: #ffffff;
+  background-color: #ff43d9;
+  border-color: #ffffff00;
+  cursor: pointer;
+}
+
+.section-title.blue-title {
+  color: #1a73e8;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.more-info-section p {
+  margin: 30px 0;
+  font-size: 20px;
+  color: #000;
+}
+
+.more-info-section strong {
+  font-weight: 600;
+}
+
+.bid-form {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bid-input {
+  padding: 8px;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.submit-bid {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}

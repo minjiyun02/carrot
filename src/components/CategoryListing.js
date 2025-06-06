@@ -1,35 +1,52 @@
-import React, { useState, useMemo } from 'react';
+import axios from 'axios';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './CategoryListing.css';
 
-function CategoryListing({ products }) {
+function CategoryListing() {
   const { categoryName } = useParams();
+  const [listings, setListings] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('asc');
   const [locationFilter, setLocationFilter] = useState('');
   const [lotFilter, setLotFilter] = useState('');
 
-  const filteredProducts = useMemo(() => {
-    return products
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/listings')
+      .then(res => setListings(res.data))
+      .catch(err => console.error('Error fetching listings:', err));
+  }, []);
+
+  useEffect(() => {
+    const handleCategorySearch = (e) => {
+      setSearchTerm(e.detail.toLowerCase());
+    };
+
+    window.addEventListener('categorySearch', handleCategorySearch);
+
+    return () => {
+      window.removeEventListener('categorySearch', handleCategorySearch);
+    };
+  }, []);
+
+  const filteredListings = useMemo(() => {
+    return listings
       .filter((product) => product.category === categoryName)
       .filter((product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+        product.title?.toLowerCase().includes(searchTerm.toLowerCase())
       )
       .filter((product) =>
-        locationFilter ? product.location === locationFilter : true
+        locationFilter ? product.itemLocation === locationFilter : true
       )
       .filter((product) =>
         lotFilter ? product.lot === lotFilter : true
       )
       .sort((a, b) => {
-        const priceA = parseFloat(a.price) || 0;
-        const priceB = parseFloat(b.price) || 0;
+        const priceA = parseFloat(a.startPrice.replace('$', '')) || 0;
+        const priceB = parseFloat(b.startPrice.replace('$', '')) || 0;
         return sortOrder === 'asc' ? priceA - priceB : priceB - priceA;
       });
-  }, [products, categoryName, searchTerm, sortOrder, locationFilter, lotFilter]);
-
-  const uniqueLocations = [...new Set(products.map((p) => p.location).filter(Boolean))];
-  const uniqueLots = [...new Set(products.map((p) => p.lot).filter(Boolean))];
+  }, [listings, categoryName, searchTerm, sortOrder, locationFilter, lotFilter]);
 
   return (
     <div className="category-listing">
@@ -43,88 +60,60 @@ function CategoryListing({ products }) {
 
       <div className="category-main">
         <aside className="filters">
-          <input
-            type="text"
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="filter-input"
-          />
-
-          <div className="filter-group">
-            <label>Sort by Price:</label>
-            <select
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value)}
-              className="filter-select"
-            >
-              <option value="asc">Low to High</option>
-              <option value="desc">High to Low</option>
-            </select>
-          </div>
-
-          <div className="filter-group">
-            <label>Location:</label>
-            <select
-              value={locationFilter}
-              onChange={(e) => setLocationFilter(e.target.value)}
-              className="filter-select"
-            >
-              <option value="">All</option>
-              {uniqueLocations.map((loc) => (
-                <option key={loc} value={loc}>{loc}</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="filter-group">
-            <label>LOT #:</label>
-            <select
-              value={lotFilter}
-              onChange={(e) => setLotFilter(e.target.value)}
-              className="filter-select"
-            >
-              <option value="">All</option>
-              {uniqueLots.map((lot) => (
-                <option key={lot} value={lot}>{lot}</option>
-              ))}
-            </select>
-          </div>
+          <h4 className="filter-section-title">Shop By Category</h4>
+          {[
+            'Vehicles',
+            'Construction',
+            'Electronic & Technology',
+            'Customer Goods',
+            'Office & Education',
+            'Medical & Emergency',
+            'Food & Agriculture',
+            'Real Estate'
+          ].map((cat, i) => (
+            <Link to={`/category/${encodeURIComponent(cat)}`} key={i} className="filter-option">
+              {cat}
+            </Link>
+          ))}
         </aside>
 
         <div className="category-content">
-          <div className="vehicle-search-box">
-            <h3 className="vehicle-search-title">Find a Vehicle</h3>
-            <div className="vehicle-search-tabs">
-              <button className="tab active">Cars & Trucks</button>
-              <button className="tab">Motorcycles</button>
-              <button className="tab">Other</button>
-            </div>
+          {categoryName === "Vehicles" && (
+            <div className="vehicle-search-box">
+              <h3 className="vehicle-search-title">Find a Vehicle</h3>
+              <div className="vehicle-search-tabs">
+                <button className="tab active">Cars & Trucks</button>
+                <button className="tab">Motorcycles</button>
+                <button className="tab">Other</button>
+              </div>
 
-            <div className="vehicle-search-fields">
-              <input type="text" placeholder="Make" />
-              <input type="text" placeholder="Model" />
-              <input type="text" placeholder="Condition" />
-              <button className="search-button">Find Vehicles</button>
+              <div className="vehicle-search-fields">
+                <input type="text" placeholder="Make" />
+                <input type="text" placeholder="Model" />
+                <input type="text" placeholder="Condition" />
+                <button className="search-button">Find Vehicles</button>
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="listings-container">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map((product, index) => (
-                <div key={index} className="listing-card">
-                  <img
-                    src={product.image || '/images/default.png'}
-                    alt={product.name}
-                    c lassName="listing-image"
-                  />
-                  <div className="listing-details">
-                    <h2 className="listing-title">{product.name}</h2>
-                    <p className="listing-price">${product.price} USD</p>
-                    <p className="listing-location">📍 {product.location || "Unknown Location"}</p>
-                    <p className="listing-lot">LOT #: {product.lot || "N/A"}</p>
+            {filteredListings.length > 0 ? (
+              filteredListings.map((product, index) => (
+                <Link to={`/listing/${product._id}`} key={index} className="listing-card-link">
+                  <div className="listing-card">
+                    <img
+                      src={`http://localhost:5000/api/listings/${product._id}/photo/0`}
+                      alt={product.title}
+                      className="listing-image"
+                    />
+                    <div className="listing-details">
+                      <h2 className="listing-title">{product.title}</h2>
+                      <p className="listing-price">${product.startPrice} USD</p>
+                      <p className="listing-location">📍 {product.itemLocation || "Unknown Location"}</p>
+                      <p className="listing-lot">Sale Type: {product.saleType || "N/A"}</p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <p>No items listed under this category.</p>

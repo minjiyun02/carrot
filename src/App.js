@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import CategoryListing from './components/CategoryListing';
+import CreateListing from './components/CreateListing';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import TopProducts from './components/TopProducts';
 import UploadProduct from './components/UploadProduct';
+import ListingDetail from './components/ListingDetails';
+import WatchList from './components/WatchList';
+import Cart from './components/Cart';
+import AllListings from './components/AllListings';
+import About from './components/About';
+
+
 
 const categories = [
   'Vehicles', 'Construction', 'Electronic & Technology', 'Customer Goods', 
@@ -50,6 +58,12 @@ function Layout({ products, addProduct }) {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/upload-product" element={<UploadProduct addProduct={addProduct} categories={categories} />} />
         <Route path="/category/:categoryName" element={<CategoryListing products={products} />} />
+        <Route path="/createlisting" element={<CreateListing />} />
+        <Route path="/listing/:id" element={<ListingDetail />} />
+        <Route path="/watchlist" element={<WatchList />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/listings" element={<AllListings />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       {!hideNavbarFooter && <Footer />}
     </div>
@@ -57,11 +71,25 @@ function Layout({ products, addProduct }) {
 }
 
 
+
+
 function MainPage({ products }) {
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  useEffect(() => {
+    const handleSearch = (e) => {
+      const keyword = e.detail.toLowerCase();
+      const filtered = products.filter(p => p.name.toLowerCase().includes(keyword));
+      setFilteredProducts(filtered);
+    };
+    window.addEventListener('mainSearch', handleSearch);
+    return () => window.removeEventListener('mainSearch', handleSearch);
+  }, [products]);
+
   return (
     <div className="main-page">
       <div className="product-grid">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <Link
             to={`/category/${encodeURIComponent(product.category)}`}
             key={product.id}
@@ -75,7 +103,6 @@ function MainPage({ products }) {
           </Link>
         ))}
       </div>
-      <TopProducts />
     </div>
   );
 }

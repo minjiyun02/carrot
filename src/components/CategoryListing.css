@@ -135,6 +135,7 @@
 .listing-card {
   background: white;
   border-radius: 10px;
+  padding: 30px 20px 0px 20px;
   overflow: hidden;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
@@ -169,4 +170,95 @@
 .listing-location, .listing-lot {
   font-size: 14px;
   color: gray;
+}
+
+
+.filter-section-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 20px 0 8px;
+  color: #333;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filters {
+  width: 250px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-section-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #111;
+  text-align: left;
+}
+
+.filter-option {
+  display: block;
+  font-size: 13px;
+  padding: 6px 0;
+  color: #555;
+  cursor: pointer;
+  text-align: left;
+}
+
+
+.filter-option:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+}
+
+.region-radius {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.region-radius input,
+.region-radius select {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.region-radius .go-button {
+  margin-top: 5px;
+  padding: 6px 12px;
+  background-color: #4f95ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  align-self: flex-start;
 }
