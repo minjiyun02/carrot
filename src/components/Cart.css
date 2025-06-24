@@ -1,0 +1,113 @@
+.cart-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.cart-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+.cart-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cart-card {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: white;
+  transition: box-shadow 0.3s ease;
+}
+
+.cart-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-thumbnail {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+  border-radius: 10px 10px 0 0;
+}
+
+.cart-info {
+  padding: 15px;
+}
+
+.cart-info h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.cart-price {
+  color: #0d9488;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cart-status {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.cancel-bid-button {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.cancel-bid-button:hover {
+  background-color: #dc2626;
+}
+
+.confirm-cancel {
+  margin-top: 10px;
+}
+
+.confirm-cancel p {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.yes-button, .no-button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+.yes-button {
+  background-color: #ef4444;
+  color: white;
+}
+
+.yes-button:hover {
+  background-color: #dc2626;
+}
+
+.no-button {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.no-button:hover {
+  background-color: #d1d5db;
+}

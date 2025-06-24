@@ -1,0 +1,119 @@
+/* ✅ Top Products 컨테이너 */
+.top-products-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;  
+  width: 90%;
+  max-width: 1300px; 
+  margin: 0 auto;
+  position: relative; 
+  overflow: hidden; 
+}
+
+/* ✅ "Top Products in Transportation" 제목 */
+.top-products-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: left;
+  width: 90%;
+  max-width: 1300px;
+  margin: 80px auto 20px;
+  padding-left: 10px;
+  margin-right: 150px;
+}
+
+/* ✅ 전체 Top Products 컨테이너 */
+.top-products-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+  width: 100%; 
+  max-width: 1300px; 
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden; 
+}
+
+/* ✅ 개별 제품 박스 */
+.top-product-box {
+  width: 320px;
+  height: 400px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ 제품 이미지 */
+.top-product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.top-product-box h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.top-product-price {
+  font-size: 1.3rem;  
+  font-weight: bold;
+  color: #007bff;
+  margin-top: 5px;
+}
+
+.top-product-location {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+
+.auction-info {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+/* ✅ 좌우 화살표 버튼 */
+.arrow-button {
+  position: absolute;
+  top: 60%; 
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; 
+  opacity: 1; 
+  visibility: visible; 
+}
+
+/* 왼쪽 화살표 */
+.left-arrow {
+  left: 10px; 
+}
+
+/* 오른쪽 화살표 */
+.right-arrow {
+  right: 10px; 
+}
+
+/* ✅ 전체 페이지 불필요한 여백 제거 */
+body, html {
+  overflow-x: hidden; 
+  width: 100vw; 
+}
